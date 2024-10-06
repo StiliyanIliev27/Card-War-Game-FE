@@ -28,7 +28,7 @@ const GameTable = () => {
     // Fetch the initial deal
     const dealCards = async () => {
         setLoading(true);
-        const response = await fetch('https://localhost:7100/api/Deck/deal');
+        const response = await fetch('https://card-war-game-be.onrender.com/api/Deck/deal');
         const data = await response.json();
         
         dealSoundEffect.play();
@@ -42,7 +42,7 @@ const GameTable = () => {
         setLoading(true);
         flipSoundEffect.play();
 
-        const response = await fetch('https://localhost:7100/api/Deck/play', { method: 'POST' });
+        const response = await fetch('https://card-war-game-be.onrender.com/api/Deck/play', { method: 'POST' });
         const result = await response.json();
 
         const [firstPlayerCardRank, firstPlayerCardSuit] = result.firstPlayerCard.split(' of ');
